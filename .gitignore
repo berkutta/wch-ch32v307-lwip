@@ -1,5 +1,6 @@
 /.vscode
 *.o
 *.d
-
-/src/lib
+*.elf
+*.hex
+*.map
