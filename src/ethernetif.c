@@ -44,13 +44,16 @@ low_level_init(struct netif *netif)
   /* set MAC hardware address length */
   netif->hwaddr_len = ETHARP_HWADDR_LEN;
 
+  uint8_t MACAddr[6];
+  WCH_GetMacAddr(MACAddr);
+
   /* set MAC hardware address */
-  netif->hwaddr[0] = 0xAA;
-  netif->hwaddr[1] = 0xBB;
-  netif->hwaddr[2] = 0xCC;
-  netif->hwaddr[3] = 0xDD;
-  netif->hwaddr[4] = 0xEE;
-  netif->hwaddr[5] = 0xFF;
+  netif->hwaddr[0] = MACAddr[0];
+  netif->hwaddr[1] = MACAddr[1];
+  netif->hwaddr[2] = MACAddr[2];
+  netif->hwaddr[3] = MACAddr[3];
+  netif->hwaddr[4] = MACAddr[4];
+  netif->hwaddr[5] = MACAddr[5];
 
   /* maximum transfer unit */
   netif->mtu = 1500;

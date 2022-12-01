@@ -620,3 +620,14 @@ void FETH_pin_init(void) {
     define_O(GPIOA, GPIO_Pin_3); /* PA3 */
 #endif
 }
+
+void WCH_GetMacAddr(uint8_t *p) {
+    uint8_t i;
+    uint8_t *macaddr = (uint8_t *)(ROM_CFG_USERADR_ID + 5);
+
+    for (i = 0; i < 6; i++) {
+        *p = *macaddr;
+        p++;
+        macaddr--;
+    }
+}
