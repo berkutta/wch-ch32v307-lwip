@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"configurations": [
+		{
+			"name": "gdb-openocd",
+			"type": "gdb",
+			"request": "attach",
+			"executable": "ch32v307-lwip.elf",
+			"remote": true,
+			"target": ":3333",
+			"cwd": "${workspaceRoot}",
+			"gdbpath": "${env:HOME}/Downloads/MRS_Toolchain_Linux_x64_V1.60/riscv/bin/riscv-none-embed-gdb",
+			"autorun": [
+				"set mem inaccessible-by-default off",
+				"set architecture riscv:rv32",
+				"set remotetimeout unlimited",
+				"monitor reset halt",
+				"load"
+			],
+		}
+	]
+}
