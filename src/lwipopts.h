@@ -184,6 +184,8 @@ a lot of data that needs to be copied, this should be set high. */
 #define LWIP_ALTCP_TLS 1
 #define LWIP_ALTCP_TLS_MBEDTLS 1
 
+#define LWIP_NETIF_HOSTNAME 1
+
 //#define MEM_ALIGNMENT               4
 //#define MEMP_NUM_TCP_SEG            32
 //#define MEMP_NUM_ARP_QUEUE          10
