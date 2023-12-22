@@ -9,7 +9,9 @@ OPENOCD_ROOT   = $(HOME)/Downloads/MRS_Toolchain_Linux_x64_V1.60/OpenOCD/bin/
 VENDOR_ROOT = ./vendor/
 
 FREERTOS_ROOT = ./src/lib/FreeRTOS/
+FREERTOS_QUIRKS_ROOT = ./src/quirks/FreeRTOS/
 LWIP_ROOT = ./src/lib/lwip/src/
+LWIP_QUIRKS_ROOT = ./src/quirks/lwip/src/
 
 ###############################################################################
 
@@ -38,9 +40,9 @@ SRC_FILES += $(FREERTOS_ROOT)queue.c
 SRC_FILES += $(FREERTOS_ROOT)stream_buffer.c
 SRC_FILES += $(FREERTOS_ROOT)tasks.c
 SRC_FILES += $(FREERTOS_ROOT)timers.c
-SRC_FILES += $(FREERTOS_ROOT)portable/GCC/RISC-V/port.c
-ASM_FILES += $(FREERTOS_ROOT)portable/GCC/RISC-V/portASM.S
-SRC_FILES += $(FREERTOS_ROOT)portable/MemMang/heap_4.c
+SRC_FILES += $(FREERTOS_QUIRKS_ROOT)portable/GCC/RISC-V/port.c
+ASM_FILES += $(FREERTOS_QUIRKS_ROOT)portable/GCC/RISC-V/portASM.S
+SRC_FILES += $(FREERTOS_QUIRKS_ROOT)portable/MemMang/heap_4.c
 
 # LwIP
 SRC_FILES += $(LWIP_ROOT)core/def.c
@@ -86,12 +88,13 @@ SRC_FILES += $(LWIP_ROOT)../contrib/ports/freertos/sys_arch.c
 INCLUDES  = -I$(SRC_DIR)
 
 INCLUDES += -I$(FREERTOS_ROOT)/include/
-INCLUDES += -I$(FREERTOS_ROOT)/portable/GCC/RISC-V/
-INCLUDES += -I$(FREERTOS_ROOT)/portable/GCC/RISC-V/chip_specific_extensions/RV32I_PFIC_no_extensions/
+INCLUDES += -I$(FREERTOS_QUIRKS_ROOT)/portable/GCC/RISC-V/
+INCLUDES += -I$(FREERTOS_QUIRKS_ROOT)/portable/GCC/RISC-V/chip_specific_extensions/RV32I_PFIC_no_extensions/
 
 INCLUDES += -I$(LWIP_ROOT)
 INCLUDES += -I$(LWIP_ROOT)../contrib/ports/freertos/include
 INCLUDES += -I$(LWIP_ROOT)/include
+INCLUDES += -I$(LWIP_QUIRKS_ROOT)
 
 # Vendor sources:
 ASM_FILES += $(STARTUP_DIR)startup_ch32v30x_D8C.S

@@ -1,0 +1,9 @@
+[submodule "src/lib/cJSON"]
+	path = src/lib/cJSON
+	url = https://github.com/DaveGamble/cJSON
+[submodule "src/lib/FreeRTOS"]
+	path = src/lib/FreeRTOS
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+[submodule "src/lib/lwip"]
+	path = src/lib/lwip
+	url = https://github.com/lwip-tcpip/lwip.git

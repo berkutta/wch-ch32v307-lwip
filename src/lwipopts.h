@@ -9,6 +9,8 @@
  */
 #define SYS_LIGHTWEIGHT_PROT 1
 
+#define LWIP_TIMEVAL_PRIVATE 0
+
 /**
  * NO_SYS==1: Provides VERY minimal functionality. Otherwise,
  * use lwIP facilities.
