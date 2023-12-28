@@ -1,14 +1,9 @@
 # Project Name
 PROJECT = ch32v307-lwip
 
-HOME_TOOLCHAIN_ROOT := "$(HOME)/Downloads/MRS_Toolchain_Linux_x64_V1.60/RISC-V Embedded GCC/bin/"
-HOME_OPENOCD_ROOT   := "$(HOME)/Downloads/MRS_Toolchain_Linux_x64_V1.60/OpenOCD/bin/"
-OPT_TOOLCHAIN_ROOT := "/opt/wch/mounriver-studio-toolchain-riscv-gcc/bin/"
-OPT_OPENOCD_ROOT   := "/opt/wch/mounriver-studio-toolchain-openocd/bin/"
-
 # Path you your toolchain and openocd installation, leave empty if already in system PATH
-TOOLCHAIN_ROOT := $(if $(wildcard $(HOME_TOOLCHAIN_ROOT)), $(HOME_TOOLCHAIN_ROOT), $(OPT_TOOLCHAIN_ROOT))
-OPENOCD_ROOT   := $(if $(wildcard $(HOME_OPENOCD_ROOT)), $(HOME_OPENOCD_ROOT), $(OPT_OPENOCD_ROOT))
+TOOLCHAIN_ROOT := "/opt/wch/mounriver-studio-toolchain-riscv-gcc/bin/"
+OPENOCD_ROOT   := "/opt/wch/mounriver-studio-toolchain-openocd/bin/"
 
 # Path to the WCH vendor codebase, make sure to update the submodule to get the code
 VENDOR_ROOT = ./vendor/
