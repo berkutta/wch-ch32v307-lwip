@@ -1,0 +1,25 @@
+image: "archlinux:base-devel"
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+build:
+  script:
+  - useradd -m build
+  - 'echo "build ALL=(ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/build'
+  - pacman -Sy --noconfirm git
+
+  - git clone https://aur.archlinux.org/mounriver-studio-toolchain-bin.git
+  - chmod -R 777 mounriver-studio-toolchain-bin
+  - cd mounriver-studio-toolchain-bin
+  - sudo -u build makepkg --noconfirm --syncdeps --rmdeps --install --clean
+  - cd -
+
+  - make -j4
+
+  artifacts:
+    paths:
+      - ./*.elf
+      - ./*.hex
+      - ./*.map
+    expire_in: 1d
